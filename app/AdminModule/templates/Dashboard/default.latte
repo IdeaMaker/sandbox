@@ -1,0 +1,38 @@
+{block title}Dashboard{/block}
+{block content}
+
+<div class="row">
+        {foreach $modules as $module}
+        <div class="module span2 text-center">
+            <h2><a href="{plink $module['listUrl']}">{$module[name]}</a></h2>
+            <a class="" href="{plink $module['listUrl']}"> <img class="" src="{$module['icon']}"></a>
+            <div class="btn-group buttons">
+                <a class="btn btn-mini" href="{plink $module['addUrl']}"><i class="icon icon-plus"></i> Přidát</a>
+                <a class="btn btn-mini" href="{plink $module['listUrl']}"><i class="icon icon-th-list"></i> Přehled</a>
+            </div>
+        </div>
+        {/foreach}
+</div>
+
+    <style>
+
+         .module {
+            /*border: 2px solid #4b4b4b;*/
+             padding: 10px;
+        }
+         .module div.buttons {
+            margin-top: 10px
+        }
+        .module div.module>a {
+            display: block;
+            width: 64px;
+            height:64px;
+
+
+        }
+        .module a {
+            color: #4b4b4b;
+        }
+    </style>
+    <br>
+{/block}

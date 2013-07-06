@@ -1,0 +1,21 @@
+
+
+{block content}
+{include _slideshow.latte}
+
+<div class="slider-wrapper wrapper-slider-big">
+				<div id="slider-big">
+					<a href="#"><img src="img/slider-1.png" alt="slider1" /></a>
+					<a href="#"><img src="img/slider-1.png" alt="slider2" /></a>
+					<a href="#"><img src="img/slider-1.png" alt="slider3" /></a>
+					</div>
+					<div class="clear"></div>
+					<a class="prev" id="foo2_prev" href="#"></a>
+					<a class="next" id="foo2_next" href="#"></a>
+				</div><!-- /#slider-big -->
+			<div class="clear"></div>
+
+<div class="box-text">
+{!$page->content}
+</div>
+{/block}

@@ -1,0 +1,78 @@
+
+
+{block content}
+{include _slideshow.latte}
+<div class="clear"></div>
+
+<div class="wrapper-slider-player">
+    <iframe width="564" height="380" src="{!$video->url}{if $id==3}?autoplay=1{/if}" frameborder="0" allowfullscreen webkitAllowFullScreen mozallowfullscreen allowFullScreens{if $id==3} autoplay="1"{/if}}></iframe>
+</div>
+
+{if $id==3}
+<div class="box-text">
+<div class="box left">
+<div class="item"><img alt="ilu1" src="/img/ilu-1.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-2.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-3.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-4.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+</div>
+<!-- /.left -->
+
+<div class="box right">
+<div class="item"><img alt="ilu1" src="/img/ilu-9.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-6.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-7.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+
+<div class="item"><img alt="ilu1" src="/img/ilu-8.png" />
+<h2>Titulek aktuality</h2>
+
+<p>Lorem Ipsum je demonstrativn&iacute; v&yacute;plňov&yacute; text použ&iacute;van&yacute; v tiskařsk&eacute;m.</p>
+</div>
+</div>
+<!-- /.right -->
+
+<div id="paginator">
+<p>Aktuality strana: <a href="#">1</a>,<a href="#">2</a>,<a href="#">3</a>,<a href="#">4</a>,<a href="#">5</a></p>
+</div>
+<!-- /#paginator -->
+</div>
+{/if}
+
+
+
+
+
+{/block}

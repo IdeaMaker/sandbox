@@ -1,0 +1,189 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>{block title|striptags|upper}{_}{$page->title}{/_}{/block} | LSFF</title>
+    <meta name="robots" content="{$robots}" n:ifset="$robots">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{$page->description}">
+    <meta name="keywords" content="{$page->keywords}">
+    <meta name="author" content="IdeaMaker, www.idea-maker.cz">
+
+    <!-- Le styles -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/text.css" />
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/960.css" />
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{$basePath}/css/override.css" />
+
+    <!-- include jQuery + carouFredSel plugin -->
+    <script type="text/javascript" language="javascript" src="{$basePath}/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" language="javascript" src="{$basePath}/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+
+    <script type="text/javascript" language="javascript" src="{$basePath}/js/js.js"></script>
+
+
+
+
+
+    {block head}{/block}
+</head>
+
+<body>
+
+
+
+
+                <div id="bg">
+                    <div id="wrapperall">
+                        {cache "header_".$presenter->lang, tags=>[sidebar]}
+                        <div id="header">
+                            <a class="logo life-sciences" href="{link Homepage:default}" ></a>
+                            <a class="logo film-festival" href="{link Homepage:default}" ></a>
+                            <a class="logo czu" href="http://www.czu.cz/cs/" target="_blank" ></a>
+                            <img class="visual" src="{$basePath}/img/visual.jpg" alt="visual" />
+
+                            <div id="topmenu">
+                                <ul class="lang">
+                                    <li><a href="{plink Homepage:default, lang=>'cs'}">CZ</a></li>
+                                    <li><a href="{plink Homepage:default, lang=>'en'}">ENG</a></li>
+                                    <li><a href="{plink Homepage:default, lang=>'de'}">DEU</a></li>
+                                </ul><!-- /.lang -->
+
+                                <ul class="category menu">
+                                    {foreach $topNavigationData as $page}
+                                    <li><a class="{if (isset($parentSlug) && $parentSlug == $page->slug) or $slug==$page->slug}active{/if}" href="{if $page->ref('staticPage', 'id')->display_url}{plink Homepage:static, slug=>$page->slug}{else}#{/if}">{$page->title}</a>
+
+
+                                        {var $subnav = false;}
+                                        {foreach $page->ref('staticPage')->related('staticPage', 'parent_id') as $subpage}
+                                        {if $subpage->is_active && !$subnav}<ul>{var $subnav=true}{/if}
+                                        {if $subpage->is_active}
+                                            <li><a href="{plink Homepage:static slug=>$subpage->related('staticPage_lang')->where(array('lang'=>$presenter->lang))->fetch()->slug, parentSlug=>$page->slug}">{$subpage->related('staticPage_lang')->where(array('lang'=>$presenter->lang))->fetch()->title}</a></li>
+                                        {/if}
+                                        {/foreach}
+                                        {if $subnav}    </ul>{/if}
+
+                                    </li>
+                                    {/foreach}
+                                </ul><!-- /.category -->
+
+                                <div class="katedry">
+                                    <a class="ico ico-1" href="http://www.af.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-2" href="http://www.fld.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-3" href="http://www.fzp.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-4" href="http://www.its.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-5" href="http://www.pef.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-6" href="http://www.tf.czu.cz/cs/" target="_blank"></a>
+                                    <a class="ico ico-7" href="http://www.ivp.czu.cz/cs/" target="_blank"></a>
+                                </div>
+
+                            </div><!-- /#topmenu -->
+
+                        </div><!-- /#header -->
+                        {/cache}
+                        <div id="content-wrapper">
+                            {cache "leftsidebar_".$presenter->lang, tags=>[sidebar]}
+                            <div class="sidebar left">
+                                <ul class="menu">
+
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(81, $presenter->lang)}">Program</a></li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(82, $presenter->lang)}">Katalog filmů</a></li>
+                                    <li><a href="">Pro návštěvníky</a>
+                                        <ul>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(84, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(83, $presenter->lang)}">Akreditace</a></li>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(76, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(29 , $presenter->lang)}">Místo konání</a></li>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(85, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(83, $presenter->lang)}">Individuální projekce</a></li>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(86, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(83, $presenter->lang)}">Ke stažení</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(87, $presenter->lang)}">Pro média</a></li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(88, $presenter->lang)}">Festivalník</a></li>
+                                    <li><a href="">Multimédia</a>
+                                        <ul>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(90, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(89, $presenter->lang)}">Fotogalérie</a></li>
+                                            <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(91, $presenter->lang), parentSlug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(89, $presenter->lang)}">Videogalérie</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="clear"></div>
+                            </div><!-- /.sidebar.left -->
+                            {/cache}
+
+                            <div class="content">
+
+                                {include #content}
+                                <div id="footer">
+                                    <p>&copy; 2013 LSFF</p>
+                                </div>
+                            </div><!-- /.content -->
+
+                            <div class="sidebar right">
+
+                                <div id="search">
+                                    <div id='cse' style='width: 100%;'>Loading</div>
+                                    <script src='//www.google.com/jsapi' type='text/javascript'></script>
+                                    <script type='text/javascript'>
+                                    google.load('search', '1', { language: '{$presenter->lang}', style: google.loader.themes.V2_DEFAULT});
+                                    google.setOnLoadCallback(function() {
+                                      var customSearchOptions = {};
+                                      var orderByOptions = {};
+                                      orderByOptions['keys'] = [{ label: 'Relevance', key: ''} , { label: 'Date', key: 'date'}];
+                                      customSearchOptions['enableOrderBy'] = true;
+                                      customSearchOptions['orderByOptions'] = orderByOptions;
+                                      var imageSearchOptions = {};
+                                      imageSearchOptions['layout'] = 'google.search.ImageSearch.LAYOUT_POPUP';
+                                      customSearchOptions['enableImageSearch'] = true;
+                                      customSearchOptions['overlayResults'] = true;
+                                      var customSearchControl =   new google.search.CustomSearchControl('009084836431418959989:zgq02fssu04', customSearchOptions);
+                                      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+                                      var options = new google.search.DrawOptions();
+                                      options.setAutoComplete(true);
+                                      customSearchControl.draw('cse', options);
+                                    }, true);
+                                    </script>
+
+                                </div>
+
+                                <ul>
+                                    <li><a href="{plink Homepage:video id=>3}">Filmový spot</a></li>
+                                    <li><a href="{if $presenter->lang=='cs'}/cs/registrace{elseif $presenter->lang=='en'}/en/registration{else}/de/registration{/if}">Přihláška filmů</a></li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(92, $presenter->lang)}">{$presenter->getStaticPageFacade()->getTitleByIdAndLang(92, $presenter->lang)}</a></li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(93, $presenter->lang)}">{$presenter->getStaticPageFacade()->getTitleByIdAndLang(93, $presenter->lang)}</a></li>
+                                    <li><a href="{plink Homepage:static slug=>$presenter->getStaticPageFacade()->getSlugByIdAndLang(94, $presenter->lang)}">{$presenter->getStaticPageFacade()->getTitleByIdAndLang(94, $presenter->lang)}</a></li>
+                                </ul>
+                                <div class="clear"></div>
+
+                                <div class="social-ico">
+                                    <a class="ico facebook" href="https://www.facebook.com/ivp.czu.cz" target="_blank"></a>
+                                    <a class="ico youtube" href="http://www.youtube.com/user/stepanalexander" target="_blank"></a>
+                                    <a class="ico google" href="http://vimeo.com/user8488760" target="_blank"></a>
+                                    <a class="ico rss" href="#"></a>
+                                </div>
+                                <div class="clear"></div>
+                            </div><!-- /.sidebar.right -->
+                            <div class="clear"></div>
+
+                        </div><!-- /#content-wrapper -->
+
+                    </div><!-- /#wrapperall -->
+                </div><!-- /#bg -->
+
+
+
+
+
+	{block scripts}
+
+
+</body>
+</html>

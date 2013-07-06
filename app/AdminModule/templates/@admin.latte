@@ -1,0 +1,102 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{block title|striptags|upper}{_}Administrace{/_}{/block} | Admin | IdeaMaker:CMS</title>
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="www.idea-maker.cz - Vladimir Polak">
+
+    <!-- Le styles -->
+    <link href="{$basePath}/css/bootstrap.css" rel="stylesheet">
+    <link href="{$basePath}/css/bootstrap-responsive.css" rel="stylesheet">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/admin.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/grido.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/datepicker.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap-datetimepicker.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{$basePath}/js/ckeditor/ckeditor.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" type="text/css">
+
+
+
+    {block head}{/block}
+</head>
+<body>
+	<script> document.documentElement.className+=' js' </script>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" n:href=":Admin:Dashboard:default">IdeaMaker:CMS</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        {if $user->isLoggedIn()}
+                        {if $user->isInRole('editor')||$user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:Dashboard:default')?active"><a n:href=":Admin:Dashboard:default">Home</a></li>{/if}
+                        {if $user->isInRole('editor')||$user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:StaticPage:*')?active"><a n:href=":Admin:StaticPage:default">Stránky</a></li>{/if}
+                        {if $user->isInRole('editor')||$user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:Actuality:*')?active"><a n:href=":Admin:Actuality:default">Novinky</a></li>{/if}
+                        {if $user->isInRole('editor')||$user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:Videogallery:*')?active"><a n:href=":Admin:Videogallery:default">Videa</a></li>{/if}
+                        {if $user->isInRole('editor')||$user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:Gallery:*')?active"><a n:href=":Admin:Gallery:default">Fotogalerie</a></li>{/if}
+                        {if $user->isInRole('admin')}<li n:class="$presenter->isLinkCurrent(':Admin:User:*')?active"><a n:href=":Admin:User:default">Uživatelé</a></li>{/if}
+
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li><a n:href=":Admin:Sign:Out"><i class="icon-off icon-white"></i> Odhlásit</a></li>
+                        {/if}
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+
+
+    <div id="wrap">
+        <div class="container-fluid">
+            <div class="well">
+                <h1>{include #title}</h1>
+                <div n:foreach="$flashes as $flash" class="alert alert-block alert-{$flash->type}">{$flash->message}<button type="button" class="close" data-dismiss="alert">&times;</button></div>
+                {include #content}
+                <div id="push"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="footer">
+            <p class="credit"><span class="pull-left">© 2013 www.lsff.cz   |    Všechna práva vyhrazena   </span><span class="pull-right">Vytvořil <a href="http://www.idea-maker.cz" target="_blank"><img src="/css/images/logo-ideamaker.png"></a></span></p>
+        </div>
+    </div>
+
+
+	{block scripts}
+
+	<script src="{$basePath}/js/jquery.hashchange.min.js"></script>
+	<script src="{$basePath}/js/jquery.maskedinput.min.js"></script>
+	<script src="{$basePath}/js/jquery.friendurl.min.js"></script>
+	<script src="{$basePath}/js/bootstrap.min.js"></script>
+	<script src="{$basePath}/js/jquery.grido.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/utils.js"></script>
+	<script src="{$basePath}/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/locales/bootstrap-datetimepicker.cs.js"></script>
+
+	<script src="{$basePath}/js/main.js"></script>
+
+	{/block}
+</body>
+</html>

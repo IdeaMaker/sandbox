@@ -1,0 +1,233 @@
+[
+    {
+        "name": "nette/nette",
+        "version": "v2.0.10",
+        "version_normalized": "2.0.10.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/nette.git",
+            "reference": "v2.0.10"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/nette/zipball/v2.0.10",
+            "reference": "v2.0.10",
+            "shasum": ""
+        },
+        "require": {
+            "ext-iconv": "*",
+            "ext-tokenizer": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "nette/tester": "@dev"
+        },
+        "suggest": {
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "ext-mbstring": "*",
+            "ext-memcache": "*",
+            "ext-pdo": "*"
+        },
+        "time": "2013-03-08 15:44:35",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "Nette/loader.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "http://davidgrudl.com"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "http://nette.org/contributors"
+            }
+        ],
+        "description": "Nette Framework - innovative framework for fast and easy development of secured web applications in PHP. Write less, have cleaner code and your work will bring you joy.",
+        "homepage": "http://nette.org",
+        "keywords": [
+            "Forms",
+            "database",
+            "dbal",
+            "debugging",
+            "framework",
+            "images",
+            "latte",
+            "mailing",
+            "micro",
+            "mvc",
+            "neon",
+            "templating"
+        ]
+    },
+    {
+        "name": "o5/grido",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/o5/grido.git",
+            "reference": "cc1253294c65d6facdcdaadb7a204462dc68b6e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/o5/grido/zipball/cc1253294c65d6facdcdaadb7a204462dc68b6e3",
+            "reference": "cc1253294c65d6facdcdaadb7a204462dc68b6e3",
+            "shasum": ""
+        },
+        "require": {
+            "nette/nette": "2.0.*",
+            "php": ">=5.3.1"
+        },
+        "time": "2013-03-30 22:26:58",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Grido": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Petr Bugyík",
+                "homepage": "http://petr.bugyik.cz/",
+                "role": "Developer"
+            }
+        ],
+        "description": "Grido - DataGrid for Nette Framework",
+        "homepage": "http://o5.github.com/grido-sandbox/",
+        "keywords": [
+            "datagrid",
+            "datalist",
+            "grid",
+            "list",
+            "nette",
+            "table",
+            "tablegrid"
+        ]
+    },
+    {
+        "name": "nette/tester",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nette/tester.git",
+            "reference": "848e7d9e6ca8f3a580d76e11a0da68c128330b8a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/nette/tester/zipball/848e7d9e6ca8f3a580d76e11a0da68c128330b8a",
+            "reference": "848e7d9e6ca8f3a580d76e11a0da68c128330b8a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-03-31 01:55:40",
+        "bin": [
+            "Tester/tester"
+        ],
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "Tester/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "http://davidgrudl.com"
+            },
+            {
+                "name": "Nette Community",
+                "homepage": "http://nette.org/contributors"
+            }
+        ],
+        "description": "An easy-to-use PHP Unit Testing framework.",
+        "homepage": "http://nette.org",
+        "keywords": [
+            "nette",
+            "testing",
+            "unit"
+        ]
+    },
+    {
+        "name": "kdyby/bootstrap-form-renderer",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Kdyby/BootstrapFormRenderer",
+            "reference": "v2.0.0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/Kdyby/BootstrapFormRenderer/archive/v2.0.0.zip",
+            "reference": "v2.0.0",
+            "shasum": ""
+        },
+        "require": {
+            "nette/nette": "2.0.*"
+        },
+        "require-dev": {
+            "nette/tester": "@dev"
+        },
+        "time": "2013-01-20 12:11:39",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Kdyby\\BootstrapFormRenderer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Filip Procházka",
+                "homepage": "http://filip-prochazka.com"
+            }
+        ],
+        "description": "Nette forms renderer with bootstrap",
+        "homepage": "http://kdyby.org",
+        "keywords": [
+            "Forms",
+            "bootstrap",
+            "kdyby",
+            "nette"
+        ]
+    }
+]

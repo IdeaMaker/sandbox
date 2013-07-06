@@ -1,0 +1,74 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+common:
+    thumbnail:
+        thumbPathMask: 'images/thumbs/{filename}-{width}x{height}.{extension}'
+        placeholder: 'http://dummyimage.com/{width}x{height}/efefef/f00&text=Image+not+found'
+    parameters:
+        default-lang: cs
+        languages:
+            - cs
+            - en
+            - de
+
+    php:
+        date.timezone: Europe/Prague
+        # zlib.output_compression: yes
+
+    nette:
+        application:
+            errorPresenter: Error
+
+        database:
+            dsn: 'mysql:host=localhost;dbname=db'
+            user: user
+            password: pass
+
+        session:
+            expiration: 14 days
+            save_path: "%tempDir%/../temp/sessions"
+
+
+    services:
+        authenticator: Authenticator
+        routerFactory: RouterFactory
+        router: @routerFactory::createRouter
+        #thumbnailHelper: ThumbnailHelper(%wwwDir%, @httpRequest, 'images/{filename}-{width}x{height}.{extension}')
+
+
+
+
+        # FACADES
+        userFacade: IdeaMaker\Facades\UserFacade
+        categoryFacade: IdeaMaker\Facades\CategoryFacade
+        galleryFacade: IdeaMaker\Facades\GalleryFacade
+        videogalleryFacade: IdeaMaker\Facades\VideogalleryFacade
+        advertisementFacade: IdeaMaker\Facades\AdvertisementFacade
+        printFacade: IdeaMaker\Facades\PrintFacade
+        staticPageFacade: IdeaMaker\Facades\StaticPageFacade(%languages%)
+        actualityFacade: IdeaMaker\Facades\ActualityFacade(%languages%)
+
+        # ADMIN GRIDS
+        userGrid: AdminModule\Components\Grids\UserGrid
+        categoryGrid: AdminModule\Components\Grids\CategoryGrid
+        galleryGrid: AdminModule\Components\Grids\GalleryGrid
+        videogalleryGrid: AdminModule\Components\Grids\VideogalleryGrid
+        printGrid: AdminModule\Components\Grids\PrintGrid
+        advertisementGrid: AdminModule\Components\Grids\AdvertisementGrid
+        staticPageGrid: AdminModule\Components\Grids\StaticPageGrid
+        actualityGrid: AdminModule\Components\Grids\actualityGrid
+
+
+
+
+    factories:
+
+
+
+production < common:
+
+development < common:

@@ -1,0 +1,27 @@
+
+
+{block content}
+    <div class="container">
+        {include _slideshow.latte}
+        <hr>
+        <div class="row">
+            <div class="span2">
+                <ul class="sidebar">
+                    {foreach $sidebarData as $subpage}
+                        {dump $parentSlug}
+                    <li><a class="{ifCurrent Homepage:static, parentSlug=>$parentSlug,slug=>$subpage->slug}active{/ifCurrent}" n:href="Homepage:static, parentSlug=>$parentSlug,slug=>$subpage->slug">{$subpage->title}</a></li>
+                    {/foreach}
+                </ul>
+            </div>
+            <div class="span10 static-page-content pull-right">
+                <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+                {!$page->content}
+                {if $slug == 'skutry-a-voziky' OR $parentSlug == 'skutry-a-voziky' OR $slug == 'kontakty'}
+                {control contactForm}
+                {/if}
+            </div>
+        </div>
+
+    </div>
+
+{/block}

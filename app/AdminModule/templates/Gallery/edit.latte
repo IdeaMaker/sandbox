@@ -1,0 +1,6 @@
+{block title}{_}Editace galerie{/_}{/block}
+{block content}
+{include _action-bar.latte}<hr>
+{form galleryForm/}
+<iframe style="border: 0px;" width="100%" height="400px" src="http://www.lsff.perun-dev.com/kcfinder/browse.php?type=images&dir=images/gallery/{$presenter->id}&langCode=cs"/>
+{/block}

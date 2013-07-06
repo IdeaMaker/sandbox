@@ -1,0 +1,13 @@
+<div class="wrapper-slider-small">
+    <div id="slider-small">
+        {foreach $items as $item}
+        <a title="{$item->title}" href="{plink Homepage:video id=>$item->id}"><img src="{!$item->image}" alt="{$item->title}" /></a>
+        {/foreach}
+
+    </div>
+    <div class="clear"></div>
+    <a class="prev" id="foo1_prev" href="#"></a>
+    <a class="next" id="foo1_next" href="#"></a>
+</div><!-- /#slider-small -->
+
+<div class="clear"></div>
