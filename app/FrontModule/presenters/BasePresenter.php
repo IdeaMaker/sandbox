@@ -9,27 +9,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
     public $lang = 'cs';
 
 
-
-
-
-
-
-
-
-    /** @var \Kollarovic\Thumbnail\AbstractGenerator */
-    protected $thumbnailGenerator;
-
-
-    public function injectThumbnail(\Kollarovic\Thumbnail\AbstractGenerator $thumbnailGenerator)
-    {
-        $this->thumbnailGenerator = $thumbnailGenerator;
-    }
-
-
     protected function createTemplate($class = NULL)
     {
         $template = parent::createTemplate($class);
-        $template->registerHelper('thumbnail', $this->thumbnailGenerator->thumbnail);
+
         return $template;
     }
 

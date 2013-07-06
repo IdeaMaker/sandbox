@@ -5,9 +5,6 @@
 # http://nette.org/security-warning
 #
 common:
-    thumbnail:
-        thumbPathMask: 'images/thumbs/{filename}-{width}x{height}.{extension}'
-        placeholder: 'http://dummyimage.com/{width}x{height}/efefef/f00&text=Image+not+found'
     parameters:
         default-lang: cs
         languages:
@@ -24,9 +21,9 @@ common:
             errorPresenter: Error
 
         database:
-            dsn: 'mysql:host=localhost;dbname=db'
-            user: user
-            password: pass
+            dsn: 'mysql:host=localhost;dbname=c0cms'
+            user: c0cms
+            password: betakaroten
 
         session:
             expiration: 14 days
