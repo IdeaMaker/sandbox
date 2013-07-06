@@ -1,0 +1,6 @@
+/vendor/
+/log/*
+/temp/*
+.idea
+mysql-connector-java-5.1.18-bin.jar
+mysql-connector-java-5.1.22-bin.jar
