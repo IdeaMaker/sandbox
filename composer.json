@@ -1,0 +1,18 @@
+{
+    "name": "ideamaker/sandbox",
+    "description": "Sandbox",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Vladimir Polak",
+            "email": "vladimir.polak.ml@gmail.com"
+        }
+    ],
+    "require": {
+        "nette/nette": "2.0.*",
+        "kdyby/bootstrap-form-renderer": "@dev",
+        "o5/grido": "@dev"
+
+    }
+}
